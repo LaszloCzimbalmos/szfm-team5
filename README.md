@@ -1,2 +1,2 @@
 # szfm-team5
-JavaFX project for University course
+Website project for University course
