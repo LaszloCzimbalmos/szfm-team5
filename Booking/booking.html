@@ -9,7 +9,7 @@
 <body>
     <div class="booking-container">
         <h1>Book a Table</h1>
-        <form id="bookingForm" action="reserveTable" method="POST">
+        <form id="bookingForm" action="http://localhost:8080/bookTable" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -21,15 +21,8 @@
             </div>
 
             <div class="form-group">
-                <label for="table">Select Table:</label>
-                <select id="table" name="table" required>
-                    <option value="1">Table 1</option>
-                    <option value="2">Table 2</option>
-                    <option value="3">Table 3</option>
-                    <option value="4">Table 4</option>
-                    <option value="5">Table 5</option>
-                    <option value="6">Table 6</option>
-                </select>
+                <label for="bookingDate">Select Booking Date:</label>
+                <input type="date" id="bookingDate" name="bookingDate" required>
             </div>
 
             <button type="submit">Book Now</button>
