@@ -5,6 +5,8 @@ import coffee.coffeeservlet.DatabaseService.DatabaseManager;
 
 import java.io.*;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -15,22 +17,21 @@ public class BookingServlet extends HttpServlet {
         System.out.println("Booking the table...");
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
-        PrintWriter responseSender = response.getWriter();
         TableRequest tableRequest = new TableRequest(request);
 
         Integer freeTable = bookTable(tableRequest);
 
-        responseSender.println("<html><body>");
-        responseSender.println("<h1>Table Booking Confirmation</h1>");
-
-        responseSender.println("<p>Dear " + tableRequest.getName() + ",</p>");
-        responseSender.println("<p>Your booking was successful! You have been assigned Table Number: <strong>" + freeTable + "</strong>.</p>");
-        responseSender.println("<p>We look forward to seeing you at the café.</p>");
-
-        responseSender.println("</body></html>");
-        responseSender.close();
+        if (freeTable != -1) {
+            request.setAttribute("name", tableRequest.getName());
+            request.setAttribute("tableNumber", freeTable);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("confirmation.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("noTablesAvailable.jsp");
+            dispatcher.forward(request, response);
+        }
 
         // Generate Password for Table
         // Send email with the credentials

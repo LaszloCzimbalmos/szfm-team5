@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Table Booking</title>
     <link rel="stylesheet" href="booking.css">
+    <script>
+        function disableButton() {
+            // Disable the submit button when form is submitted
+            const submitButton = document.getElementById("submitBtn");
+            submitButton.disabled = true;
+            submitButton.textContent = "Booking..."; // Change text to show it's processing
+        }
+    </script>
 </head>
 <body>
     <div class="booking-container">
         <h1>Book a Table</h1>
-        <form id="bookingForm" action="http://localhost:8080/bookTable" method="post">
+        <form id="bookingForm" action="http://localhost:8080/bookTable" method="post" onsubmit="disableButton()">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -25,7 +33,7 @@
                 <input type="date" id="bookingDate" name="bookingDate" required>
             </div>
 
-            <button type="submit">Book Now</button>
+            <button id="submitBtn" type="submit">Book Now</button>
         </form>
     </div>
 </body>
