@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paws and Lattes Cafe - Contact</title>
+    <title>Paws And Lattes - Sign In</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Marck+Script&display=swap"
@@ -24,7 +24,7 @@
             <li class="menu-nav__item">
               <a href="index.html" class="logo menu-nav__link">
                 <img src="../img/favicon.png" />
-                <span class="logo-first">Paws and Lattes</span>
+                <span class="logo-first">Drip</span>
                 <span class="logo-last">Cafe</span>
               </a>
             </li>
@@ -34,7 +34,7 @@
                 Sign In
               </a>
               <span class="menu-nav__link" id="slash">/</span>
-              <a href="sign-up.html" class="sign-up menu-nav__link">
+              <a href="sign-up.html" class="sign-up menu-nav__link active">
                 Sign Up
               </a>
             </li>
@@ -54,7 +54,7 @@
                 Services
               </a>
             </li>
-            <li class="menu-nav__item active">
+            <li class="menu-nav__item">
               <a href="contact.html" class="menu-nav__link">
                 Contact
               </a>
@@ -67,7 +67,7 @@
           </ul>
         </nav>
       </div>
-
+      <!-- Shopping Cart -->
       <div class="cart-overlay">
         <div class="cart">
           <div class="cart__closeBtn">
@@ -79,6 +79,7 @@
             <i class="fa fa-cart-arrow-down"></i>
           </h2>
 
+          <!-- JS will add items here -->
           <div class="item1-display"></div>
           <div class="item2-display"></div>
           <div class="item3-display"></div>
@@ -103,27 +104,40 @@
     </header>
 
     <main>
-      <section class="contact">
+      <section class="sign-up">
         <div class="pic-area">
           <div class="pic-area-text">
-            <h2>Methods to</h2>
-            <h1 class="home__name">
-              Contact Us
-            </h1>
-            <h3>One email, phone call, or block away.</h3>
-            <div class="sections">
-              <div class="sections-section">
-                <i class="fas fa-envelope"></i> Email
-                <p>PawsandLattes@email.com</p>
-              </div>
-              <div class="sections-section">
-                <i class="fas fa-mobile-alt"></i> Phone
-                <p>+36 70 420 5562</p>
-              </div>
-              <div class="sections-section">
-                <i class="fas fa-map-marker-alt"></i> Address
-                <p>4028 Debrecen, Macsek utca 12, Hungary</p>
-              </div>
+            <div id="login-box">
+              <form
+                id="login-form"
+                name="login-form"
+                action="index.html"
+                method="post"
+              >
+                <label>Mewmail: </label> <br />
+                <input
+                  type="email"
+                  name="email"
+                  id="emailid"
+                  pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                  required
+                />
+                <br />
+                <label>Caller Code: </label> <br />
+                <input
+                  type="text"
+                  name="userid"
+                  id="userid"
+                  pattern="[a-zA-Z0-9]+"
+                  required
+                />
+                <!-- minlength="10" does not work probably bc you need to use the submit button--><br />
+                <label>Paw Print: </label> <br />
+                <input type="password" name="pswrd" id="pswrd" /><br />
+                <br />
+              </form>
+              <div id="username-display"></div>
+              <button class="btn-order" id="sign-up-btn">Sign Up</button>
             </div>
             <div class="icons">
               <a href="#!">
