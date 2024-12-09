@@ -81,42 +81,6 @@ if (currUser) {
   }
 }
 
-if (loginBtn) {
-  if (!currUser) {
-    loginBtn.addEventListener("click", checkUsername);
-    loginForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
-  } else {
-    loginBtn.innerHTML = "Sign Out";
-    loginBtn.addEventListener("click", () => {
-      localStorage.removeItem("username");
-      location.reload();
-    });
-    loginForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
-  }
-}
-
-if (signUpBtn) {
-  if (!currUser) {
-    signUpBtn.addEventListener("click", createNewUsername);
-    loginForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
-  } else {
-    signUpBtn.innerHTML = "Sign Out";
-    signUpBtn.addEventListener("click", () => {
-      localStorage.removeItem("username");
-      location.reload();
-    });
-    loginForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
-  }
-}
-
 const menuBtn = document.querySelector(".menu-btn");
 const hamburger = document.querySelector(".menu-btn__burger");
 const nav = document.querySelector(".nav");
