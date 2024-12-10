@@ -40,7 +40,7 @@
       <dependency>
           <groupId>mysql</groupId>
           <artifactId>mysql-connector-java</artifactId>
-          <version>5.1.6</version>
+          <version>8.0.28</version>
       </dependency>
       <!-- JUnit 5 dependencies -->
       <dependency>
@@ -48,18 +48,6 @@
           <artifactId>junit-jupiter-api</artifactId>
           <version>5.7.0</version>
           <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-engine</artifactId>
-          <version>5.7.0</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>mysql</groupId>
-          <artifactId>mysql-connector-java</artifactId>
-          <version>8.0.29</version>
-          <scope>test</scope> <!-- Ensures the dependency is only used for testing -->
       </dependency>
 
       <!-- Mockito for mocking -->
